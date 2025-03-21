@@ -306,19 +306,16 @@
       100% { background-position: 0% 50%; }
     }
     
-    .avatar-frame {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: transparent;
-      pointer-events: none;
-      z-index: 10;
-      overflow: hidden;
-    }
-    
+.avatar-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10;
+}
     .avatar-frame::before {
       content: '';
       position: absolute;
@@ -335,26 +332,25 @@
       animation: rotate 20s linear infinite;
     }
     
-    .avatar-frame::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 3px solid transparent;
-      border-radius: 50%;
-      background: 
-        linear-gradient(transparent, transparent) padding-box,
-        conic-gradient(
-          from 0deg,
-          var(--accent-color),
-          var(--glow-color),
-          var(--accent-color)
-        ) border-box;
-      filter: brightness(1.5);
-      animation: pulse 3s ease-in-out infinite alternate;
-    }
+.avatar-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+      from 0deg,
+      var(--accent-color),
+      var(--glow-color),
+      var(--accent-color)
+  );
+  /* The mask makes the inner circle transparent so the image shows through */
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), black calc(100% - 2px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 4px), black calc(100% - 2px));
+  pointer-events: none;
+}
     
     .avatar-grid {
       position: absolute;
