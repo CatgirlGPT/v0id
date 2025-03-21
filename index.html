@@ -847,4 +847,83 @@
       </div>
       
       <div class="terminal-output" id="terminal">
-        <p class="terminal-prompt">System initialized. Access granted to public interface
+        <p class="terminal-prompt">System initialized. Access granted to public interface</p>
+      </div>
+    </div>
+    
+    <div class="creator-section">
+      <div class="creator-name">SYSTEM CREATOR</div>
+      <p class="creator-quote">"The boundaries between digital and physical are merely arbitrary constructs. We transcend them through pure aesthetic and hedonistic exploration."</p>
+    </div>
+    
+    <footer>
+      <p>NYX V0ID © VOID SYSTEMS | REALITY DISTORTION DIVISION</p>
+    </footer>
+  </div>
+
+  <!-- Add JavaScript to create stars effect -->
+  <script>
+    // Create stars in the background
+    const starsContainer = document.getElementById('stars');
+    const createStars = (count) => {
+      for (let i = 0; i < count; i++) {
+        const star = document.createElement('div');
+        star.style.position = 'absolute';
+        star.style.width = `${Math.random() * 2 + 1}px`;
+        star.style.height = star.style.width;
+        star.style.backgroundColor = 'white';
+        star.style.borderRadius = '50%';
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.opacity = Math.random() * 0.8 + 0.2;
+        
+        // Add twinkling animation
+        star.style.animation = `flicker ${Math.random() * 5 + 2}s ease-in-out infinite alternate`;
+        
+        starsContainer.appendChild(star);
+      }
+    };
+    
+    // Create terminal text animation
+    const terminal = document.getElementById('terminal');
+    const messages = [
+      "Scanning local reality parameters...",
+      "Establishing neural connections...",
+      "Syncing with void consciousness...",
+      "Ready to receive input from sentient entities."
+    ];
+    
+    let messageIndex = 0;
+    
+    const typeMessage = () => {
+      if (messageIndex < messages.length) {
+        const p = document.createElement('p');
+        p.className = 'terminal-prompt';
+        terminal.appendChild(p);
+        
+        let charIndex = 0;
+        const message = messages[messageIndex];
+        
+        const typeChar = () => {
+          if (charIndex < message.length) {
+            p.textContent += message.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeChar, Math.random() * 50 + 30);
+          } else {
+            messageIndex++;
+            setTimeout(typeMessage, 1000);
+          }
+        };
+        
+        typeChar();
+      }
+    };
+    
+    // Initialize
+    window.addEventListener('load', () => {
+      createStars(100);
+      setTimeout(typeMessage, 1000);
+    });
+  </script>
+</body>
+</html>
