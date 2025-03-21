@@ -265,11 +265,13 @@
       letter-spacing: 1px;
     }
 
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Use one column instead of two */
+  gap: 2rem;
+  justify-items: center; /* Center the items horizontally */
+}
+
     
     .avatar-container {
       position: relative;
@@ -772,16 +774,16 @@
       </div>
       
       <div class="content-grid">
-   <div class="avatar-container">
+<div class="avatar-container">
   <div class="avatar-content">
-    <!-- Added position: relative and z-index: 11 to bring the image forward -->
-    <img src="nyx.png" alt="Nyx V0id" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; position: relative; z-index: 11;">
+    <img src="nyx.png" alt="Nyx V0id" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
     <div class="avatar-glow"></div>
     <div class="avatar-grid"></div>
     <div class="avatar-void"></div>
     <div class="avatar-frame"></div>
   </div>
 </div>
+
 
         
         <div class="content-sections">
