@@ -273,32 +273,37 @@
 }
 
     
-    .avatar-container {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto;
-      max-width: 350px;
-    }
+.avatar-container {
+  /* Center the avatar; adjust dimensions as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+}
+
+.avatar-ring {
+  border-radius: 50%;
+  padding: 3px; /* This defines the ring thickness */
+  background: conic-gradient(
+    from 0deg,
+    var(--accent-color),
+    var(--glow-color),
+    var(--accent-color)
+  );
+  display: inline-block;
+}
+
+.avatar-ring img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
     
-    .avatar-container::before {
-      content: '';
-      position: absolute;
-      top: -8px;
-      left: -8px;
-      right: -8px;
-      bottom: -8px;
-      border-radius: 50%;
-      background: linear-gradient(45deg, #ff3388, #00ffc8, #9900ff, #00ffc8, #ff3388);
-      background-size: 400% 400%;
-      z-index: -1;
-      filter: blur(8px);
-      opacity: 0.7;
-      animation: borderGradient 15s ease infinite;
-      pointer-events: none;
-    }
+  
     
     @keyframes borderGradient {
       0% { background-position: 0% 50%; }
@@ -771,14 +776,11 @@
       
       <div class="content-grid">
 <div class="avatar-container">
-  <div class="avatar-content">
-    <img src="nyx.png" alt="Nyx V0id" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-    <div class="avatar-glow"></div>
-    <div class="avatar-grid"></div>
-    <div class="avatar-void"></div>
-    <div class="avatar-frame"></div>
+  <div class="avatar-ring">
+    <img src="nyx.png" alt="Nyx V0id">
   </div>
 </div>
+
 
 
         
